@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { usePost } from "use-wp";
 import parse, { domToReact } from "html-react-parser";
@@ -37,18 +37,20 @@ function Post() {
   };
   console.log(post.data);
   return (
-    <div className="post">
-      <h2>{parse(post.data.title.rendered)}</h2>
-      <div className="featured">
-        <FeaturedImage width={"100%"} id={post.data.featured_media} />
+    <Suspense fallback={<Spin size="large" />}>
+      <div className="post">
+        <h2>{parse(post.data.title.rendered)}</h2>
+        <div className="featured">
+          <FeaturedImage width={"100%"} id={post.data.featured_media} />
+        </div>
+        {parse(post.data.content.rendered, options)}
+        <h2>Comments</h2>
+        {post.data._embedded.replies &&
+          post.data._embedded.replies[0].map((reply) =>
+            parse("<b>" + reply.author_name + "</b> " + reply.content.rendered)
+          )}
       </div>
-      {parse(post.data.content.rendered, options)}
-      <h2>Comments</h2>
-      {post.data._embedded.replies &&
-        post.data._embedded.replies[0].map((reply) =>
-          parse("<b>" + reply.author_name + "</b> " + reply.content.rendered)
-        )}
-    </div>
+    </Suspense>
   );
 }
 
