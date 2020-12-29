@@ -1,12 +1,13 @@
 import React from "react";
-import "./App.scss";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Layout } from "antd";
+import useWP from "use-wp";
+import "./App.scss";
+
 import Header from "./components/Header";
 import Home from "./components/Home";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Blog from "./components/Blog";
-import Post from "./components/Post";
-import useWP from "use-wp";
+const Blog = React.lazy(() => import("./components/Blog"));
+const Post = React.lazy(() => import("./components/Post"));
 
 const { Footer, Content } = Layout;
 
