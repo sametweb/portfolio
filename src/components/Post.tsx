@@ -16,6 +16,13 @@ function Post() {
     fetchPost(params.slug);
   }, [fetchPost, params.slug]);
 
+  useEffect(() => {
+    if (post.data.title?.rendered) {
+      document.title =
+        post.data.title.rendered.replace(/(<([^>]+)>)/gi, "") + " | " + document.title;
+    }
+  }, [post.data.title?.rendered]);
+
   if (post.loading) {
     return (
       <div style={{ height: 500, display: "flex", justifyContent: "center", alignItems: "center" }}>
