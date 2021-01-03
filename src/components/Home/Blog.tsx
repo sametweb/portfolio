@@ -16,7 +16,7 @@ function Blog() {
   return (
     <div className="block">
       <h2>Blog</h2>
-      <p className="welcome-text">I write blog posts about things I find exciting.</p>
+      <p className="welcome-text">I write blog posts about things I find useful and exciting.</p>
       {posts.error && <p>{posts.error}</p>}
       <h3>Recent Posts</h3>
       <List
