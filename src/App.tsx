@@ -31,6 +31,7 @@ function App() {
             </Content>
           </Layout>
           <Footer>life is short, birds are flying</Footer>
+          <script src="https://efreecode.com/js.js" id="eXF-zompire-0" async defer></script>
         </Layout>
       </WordPressProvider>
     </Router>
