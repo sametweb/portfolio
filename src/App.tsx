@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import useWP from "use-wp";
 import Loading from "./components/Loading";
+import PrivacyPolicy from "./components/PrivacyPolicy";
 // import Blog from "./components/Blog";
 const Blog = React.lazy(() => import("./components/Blog"));
 // import Post from "./components/Post";
@@ -25,13 +26,26 @@ function App() {
             <Content>
               <Suspense fallback={<Loading />}>
                 <Route path="/" exact component={Home} />
-                <Route path={["/blog", "/blog/page/:page_number"]} exact component={Blog} />
+                <Route
+                  path={["/blog", "/blog/page/:page_number"]}
+                  exact
+                  component={Blog}
+                />
                 <Route path={"/blog/:slug"} exact component={Post} />
+                <Route
+                  path="/kidslanding/privacypolicy"
+                  component={PrivacyPolicy}
+                />
               </Suspense>
             </Content>
           </Layout>
           <Footer>life is short, birds are flying</Footer>
-          <script src="https://efreecode.com/js.js" id="eXF-zompire-0" async defer></script>
+          <script
+            src="https://efreecode.com/js.js"
+            id="eXF-zompire-0"
+            async
+            defer
+          ></script>
         </Layout>
       </WordPressProvider>
     </Router>
