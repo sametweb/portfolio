@@ -1,15 +1,8 @@
-import Head from "next/head";
 import styles from "@/styles/Home.module.css";
-import {
-  Linkedin,
-  Twitter,
-  Home as HomeIcon,
-  GitHub,
-  GitBranch,
-  Gitlab,
-} from "react-feather";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { GitHub, Linkedin, Twitter } from "react-feather";
 
 export default function Home() {
   return (

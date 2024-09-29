@@ -3,7 +3,7 @@
 }
 
 .pageContainer {
-  @apply flex flex-col items-center gap-10 w-full max-w-[800px] my-0 mx-auto bg-white px-5 py-10 mt-10 rounded-xl drop-shadow-sm
+  @apply flex flex-col items-center gap-10 w-full max-w-[800px] my-0 mx-auto bg-white px-5 py-10 mt-10 rounded-xl drop-shadow-sm;
 }
 
 .profileImage {
@@ -20,4 +20,8 @@
 
 .icons {
   @apply flex gap-2 text-center items-center;
+}
+
+.link {
+  @apply text-blue-500 underline;
 }
